@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const Gamedig = require('gamedig');
+const { response } = require('express');
 require('dotenv-flow').config();
 
 const port = process.env.PORT || 1337;
@@ -11,7 +12,7 @@ async function getServerStatus(server){
   try {
     return await Gamedig.query({type: 'csgo', host: server})
   } catch (err){
-    console.log(err);
+    console.log('');
   }
 }
 
@@ -21,7 +22,7 @@ app.get('/:server', cors(), async (request, response) => {
     const status = await getServerStatus(server);
     response.json(status);
   } catch(err) {
-    console.log(err);
+    console.log('err');
   }
 })
 
