@@ -4,7 +4,7 @@ const cors = require('cors');
 const Gamedig = require('gamedig');
 require('dotenv-flow').config();
 
-const port = 1337 || process.env.PORT;
+const port = process.env.PORT || 1337;
 app.use(express.json());
 
 async function getServerStatus(server){
