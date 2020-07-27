@@ -12,7 +12,6 @@ async function getServerStatus(server){
   try {
     return await Gamedig.query({type: 'csgo', host: server})
   } catch (err){
-    console.log('');
   }
 }
 
@@ -22,7 +21,6 @@ app.get('/:server', cors(), async (request, response) => {
     const status = await getServerStatus(server);
     response.json(status);
   } catch(err) {
-    console.log('err');
   }
 })
 
