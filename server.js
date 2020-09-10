@@ -19,7 +19,7 @@ app.get('/:server/:port', cors(), async (request, response) => {
   try {
     const server = request.params.server;
     const serverport = request.params.port;
-    const status = await getServerStatus(server);
+    const status = await getServerStatus(server, serverport);
     response.json(status);
   } catch(err) {
   }
