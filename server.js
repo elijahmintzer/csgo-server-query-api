@@ -8,16 +8,17 @@ require('dotenv-flow').config();
 const port = process.env.PORT || 1337;
 app.use(express.json());
 
-async function getServerStatus(server){
+async function getServerStatus(server, serverport){
   try {
-    return await Gamedig.query({type: 'csgo', host: server})
+    return await Gamedig.query({type: 'csgo', host: server, port: serverport})
   } catch (err){
   }
 }
 
-app.get('/:server', cors(), async (request, response) => {
+app.get('/:server/:port', cors(), async (request, response) => {
   try {
     const server = request.params.server;
+    const serverport = request.params.port;
     const status = await getServerStatus(server);
     response.json(status);
   } catch(err) {
