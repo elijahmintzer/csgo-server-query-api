@@ -22,10 +22,4 @@ Replace 'SERVERIP' with your server IP & Port. (example: https://csgo-server-que
 
 # Dependencies: 
 
-- GameDig - https://github.com/gamedig/node-gamedig
-
-- ExpressJS
-
-- Cors
-
-- Dotenv-Flow
+- NodeJS
